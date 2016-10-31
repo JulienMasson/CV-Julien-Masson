@@ -18,6 +18,10 @@
 \RequirePackage{pgffor}
 \RequirePackage{marvosym}
 \RequirePackage{parskip}
+\RequirePackage{multicol}
+\RequirePackage{fontawesome,academicons}
+\RequirePackage{dashrule}
+\RequirePackage{wrapfig}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -31,6 +35,8 @@
 \definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
+\definecolor{maingreen}{HTML}{00ea27}
+\colorlet{body}{black!80!white}
 
 %----------------------------------------------------------------------------------------
 %	 MISC CONFIGURATIONS
@@ -51,7 +57,7 @@
 
 \newlength\imagewidth
 \newlength\imagescale
-\pgfmathsetlength{\imagewidth}{5cm}
+\pgfmathsetlength{\imagewidth}{3cm}
 \pgfmathsetlength{\imagescale}{\imagewidth/600}
 
 \newcommand{\profilesection}[2]{\vspace{8pt}{\color{black!80} \huge #1 \rule[0.15\baselineskip]{#2}{1pt}}}
@@ -59,6 +65,7 @@
 % Define custom commands for CV info
 \newcommand{\cvdate}[1]{\renewcommand{\cvdate}{#1}}
 \newcommand{\cvmail}[1]{\renewcommand{\cvmail}{#1}}
+\newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
 \newcommand{\education}[1]{\renewcommand{\education}{#1}}
@@ -74,7 +81,7 @@
 	\renewcommand{\skills}{
 		\begin{tikzpicture}
 			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
+				\draw[fill=maingray,maingray] (0,\i) rectangle (5,\i+0.4);
 				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
 				\node [above right] at (0,\i+0.4) {\x};
 			}
@@ -99,7 +106,7 @@
 
 \newcommand{\makeprofile}{
 	\begin{tikzpicture}[remember picture,overlay]
-   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=7.5cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
 	\end{tikzpicture}
 
 	%------------------------------------------------
@@ -126,12 +133,13 @@
 			\ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\Info}} & \cvdate\\}
 			\ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\Letter}} & \cvaddress\\}
 			\ifthenelse{\equal{\cvnumberphone}{}}{}{\textsc{\Large\icon{\Telefon}} & \cvnumberphone\\}
-			\ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\cvmail}{\cvmail}}
+			\ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\cvmail}{\cvmail}\\}
+			\ifthenelse{\equal{\cvlinkedin}{}}{}{\textsc{\large\icon{\faLinkedin}} & \href{mailto:\cvlinkedin}{\cvlinkedin}}
 		\end{tabular}
 
 		%------------------------------------------------
 
-		\profilesection{Education}{2.6cm}
+		\profilesection{Education}{2.1cm}
 			
 		\begin{flushleft}
 			\education
@@ -139,7 +147,7 @@
 
 		%------------------------------------------------
 
-		\profilesection{Languages}{2.6cm}
+		\profilesection{Languages}{2.1cm}
 			
 		\begin{flushleft}
 			\languages
@@ -147,7 +155,7 @@
 
                 %------------------------------------------------
 
-		\profilesection{Skills}{4cm}
+		\profilesection{Skills}{3.5cm}
 
 		\skills
 		\skillstext
@@ -172,7 +180,6 @@
 	{%
 		\round{#1}{
 			\ifcase\value{colorCounter}%
-			maingray\or%
 			mainblue\or%
 			maingray\or%
 			mainblue\or%
@@ -202,6 +209,34 @@
 	\par\vspace{.25\parskip}%
 }
 
+\newcommand{\cvsection}[2][]{%
+  \bigskip%
+  \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}% 
+  {\color{mainblue}\LARGE\bfseries\MakeUppercase{#2}}\\[-1ex]%
+  {\color{mainblue}\rule{\linewidth}{2pt}\par}\medskip
+}
+
+\newcommand{\cvevent}[4]{%
+  {\large\color{black}#1\par}
+  \textbf{\color{blue!70!black}#2}\par
+  {\footnotesize\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
+  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+  \medskip
+}
+
+\newcommand{\mycvevent}[4]{%
+  {\large\makebox[0.5\linewidth][l]{\color{black}\hspace{0.5em}#1}%
+    \makebox[0.5\linewidth][l]{\textbf{\color{blue!70!black}\hspace{0.5em}#2}}\par}
+  {\footnotesize\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
+  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+  \medskip
+}
+
+\newcommand{\divider}{\textcolor{body!30}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}\medskip}
+
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+}
 %----------------------------------------------------------------------------------------
 %	 LONG LIST ENVIRONMENT
 %----------------------------------------------------------------------------------------

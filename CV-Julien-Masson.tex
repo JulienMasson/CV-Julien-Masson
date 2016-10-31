@@ -7,7 +7,7 @@
 % http://www.LaTeXTemplates.com
 %
 % Original author:
-% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by 
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by
 % Vel (vel@LaTeXTemplates.com)
 %
 % License:
@@ -20,6 +20,9 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[letterpaper]{jm-cv} % a4paper for A4
+
+% Change the font to Lato
+\setmainfont{Lato}
 
 %----------------------------------------------------------------------------------------
 %	 PERSONAL INFORMATION
@@ -34,6 +37,7 @@
 \cvaddress{France} % Short address/location, use \newline if more than 1 line is required
 \cvnumberphone{+33 0682954063} % Phone numbe
 \cvmail{massonju.eseo@gmail.com} % Email address
+\cvlinkedin{julien-masson} % Linkedin => https://www.linkedin.com/in/julien-masson-20801482
 
 %----------------------------------------------------------------------------------------
 
@@ -44,18 +48,16 @@
 %----------------------------------------------------------------------------------------
 
 \education{
-  \begin{twentyshort} % Environment for a list with descriptions
-    \twentyitemshort{2008-2014}{Engineering Scool}
-    \twentyitemshort{2012-2013}{MSc Robotics}
-    \twentyitemshort{2005-2008}{A Level of Sciences}
-  \end{twentyshort}
+  \cvevent{Engineering Scool}{ESEO}{Sept 2008 -- June 2014}{}
+  \cvevent{MSc Robotics}{Univeristy of Plymouth}{Sept 2012 -- Sept 2013}{}
+  \cvevent{A Level of Sciences}{Sacre Coeur}{Sept 2005 -- June 208}{}
 }
 
 \languages{
   \begin{twentyshort} % Environment for a list with descriptions
-    \twentyitemshort{French}{Native proficiency}
-    \twentyitemshort{English}{Full professional proficiency}
-    \twentyitemshort{German}{Elementary proficiency}
+    \twentyitemshort{French}{\hspace{0.5cm}Native}
+    \twentyitemshort{English}{\hspace{0.5cm}Full professional}
+    \twentyitemshort{German}{\hspace{0.5cm}Elementary}
   \end{twentyshort}
 }
 
@@ -64,88 +66,150 @@
 %----------------------------------------------------------------------------------------
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
-\skills{{Latex/2},{Python/2},{Perl/2},{Lisp/4},{C++/3.5},{Git/5},{Bash/5},{C/5}}
+\skills{{Latex/1.5},{Python/1.5},{Perl/1.5},{Lisp/3.5},{C++/3},{Git/4.5},{Bash/4.5},{C/4.5}}
 
 %------------------------------------------------
 
 \makeprofile % Print the sidebar
 
 %----------------------------------------------------------------------------------------
-%	 EDUCATION
+%	 TITLE
 %----------------------------------------------------------------------------------------
 
 \begin{center}
-  {\Huge\color{black!80}Embedded Linux Engineer}
+  {\Huge\color{black!80}Embedded System Engineer}
 \end{center}
 
-\section{About me}
-\newline
-Embedded linux isn't only my field of work, it's a hobby.
-\newline
-I enjoy to learn and practice in this domain.
-\newline
-With my last internships and my experience at Intel, I succeed in learning solid knowledges in embedded linux.
-\newline
-I am careful with my work environment to be autonomous and fast.
-\newline
-I work with many people, I know how to find solutions together, I'm open-minded and friendly personality.
-\newline
-My goal is to continue on this way and go deeply in what I learnt.
+\begin{center}
+  {\large\color{black!80}Looking for a job in Taiwan}
+\end{center}
 
 %----------------------------------------------------------------------------------------
 %	 EXPERIENCE
 %----------------------------------------------------------------------------------------
 
-\section{Experience}
+\cvsection{EXPERIENCE}
 
-\subsection{August 2014    Embedded linux developer for new devices at Intel}
-I'm working on new Intel devices based on android platform.
-\newline
-Technical specialist of these subjects in the team:
+\mycvevent{Linux Developer}{Intel}{August 2014 -- Ongoing}{Toulouse, France}
+
+\begin{wrapfigure}{R}{0.2\textwidth}
+\includegraphics[scale=0.12]{logo-intel.png}
+\end{wrapfigure}
+
+\small{
+
+Development of new Intel devices based on android platform.
+
+{\footnotesize\color{maingray}\bullet} Technical specialist of these subjects in the team:
+\vspace{-0.2cm}
 \begin{itemize}
-\item Power up/down process
-\item Provisioning and systems update
-\item Bootloader and manufacturing OS
-\item Flashing and boot process
+\item[\color{mainblue}\faArrowRight] Power up/down process
+\item[\color{mainblue}\faArrowRight] Provisioning and systems update
+\item[\color{mainblue}\faArrowRight] Flashing and boot process
 \end{itemize}
 
-I participated to two bring-up of 1 month each in Malaysia for manufacturing.
-\newline
-The goal was to resolve hardware/software issues when we assembly the device.
-\newline
-It was really good experience to work with hardware/software/mechanical team together.
-
-Technical skills:
+{\footnotesize\color{maingray}\bullet}  Developer/Maintainer of this software components:
+\vspace{-0.2cm}
 \begin{itemize}
-\item low-level programming
-\item kernel and system programming
-\item compilation
-\item debugging and tracing
-\item automation scripts}
+\item[\color{mainblue}\faArrowRight] Bootloader and some Intel firmware
+\item[\color{mainblue}\faArrowRight] Recovery OS, Provisioning OS, Manufacturing OS (Android linux)
 \end{itemize}
 
-\subsection{March 2014 August 2014    End of studies Internship Open Wide}
-Development of 6LoWPAN system for home automation solutions
+{\footnotesize\color{maingray}\bullet} Support for manufacturing in Malaysia (2 bring-up of one month)\\
 
-\subsection{University Projects}
-Small sections
+\begin{tabular}{ l l l }
+  Project environment: & \hspace{1cm}Software tools: & \hspace{1cm}Technical skills:\\
+  {\color{mainblue}\faCheck} Confluence &
+  \hspace{1cm}{\color{maingreen}\faCheck} Emacs &
+  \hspace{1cm}{\color{maingray}\faCheck} low-level programming\\
+
+  {\color{mainblue}\faCheck} Jira &
+  \hspace{1cm}{\color{maingreen}\faCheck} Lauterbach &
+  \hspace{1cm}{\color{maingray}\faCheck} kernel and system programming\\
+
+  {\color{mainblue}\faCheck} Jenkins &
+  \hspace{1cm}{\color{maingreen}\faCheck} GDB &
+  \hspace{1cm}{\color{maingray}\faCheck} compilation\\
+
+  {\color{mainblue}\faCheck} Gerrit &
+  \hspace{1cm}{\color{maingreen}\faCheck} Strace, Ftrace &
+  \hspace{1cm}{\color{maingray}\faCheck} debugging and tracing\\
+
+  {\color{mainblue}\faCheck} TeamForge &
+  \hspace{1cm}{\color{maingreen}\faCheck} Valgrind &
+  \hspace{1cm}{\color{maingray}\faCheck} automation scripts \\
+
+  {\color{mainblue}\faCheck} Android &
+  \hspace{1cm}{\color{maingreen}\faCheck} DebugFs &
+
+\end{tabular}\\
+
+Programming languagues used:\\
+\cvtag{C}
+\cvtag{C++}
+\cvtag{Bash}
+\cvtag{Python}
+\cvtag{Lisp}
+\cvtag{Perl}
+\cvtag{asm x86}
+}
+
+\divider
+
+\mycvevent{End of studies Internship}{OpenWide}{March 2014 -- August 2014}{Toulouse, France}
+
+\small {
+
+  Development of 6LoWPAN system for home automation solutions.
+
+\begin{tabular}{ l l l }
+  Project environment: & \hspace{1cm}Software tools: & \hspace{1cm}Technical skills:\\
+  {\color{mainblue}\faCheck} Yocto &
+  \hspace{1cm}{\color{maingreen}\faCheck} Emacs &
+  \hspace{1cm}{\color{maingray}\faCheck} Microcontroller programming\\
+
+  {\color{mainblue}\faCheck} Contiki OS &
+  \hspace{1cm}{\color{maingreen}\faCheck} Wireshark &
+  \hspace{1cm}{\color{maingray}\faCheck} system programming\\
+
+  {\color{mainblue}\faCheck} Github &
+  \hspace{1cm}{\color{maingreen}\faCheck} GDB &
+  \hspace{1cm}{\color{maingray}\faCheck} Cross-compilation\\
+
+\end{tabular}\\
+
+Programming languagues used:\\
+\cvtag{C}
+\cvtag{C++}
+\cvtag{Bash}
+\cvtag{Lisp}
+}
+
 
 %----------------------------------------------------------------------------------------
-%	 OTHER INFORMATIONS
+%	 ACTIVITIES
 %----------------------------------------------------------------------------------------
 
-\section{Activities}
+\cvsection{ACTIVITIES}
 
-Gym, Running, Cycling \newline
-10 years of Basket-Ball \newline
-3 years official referree of Basket-Ball \newline
-2 years in robotics club \newline
-\newline
-Summer/Saturdays jobs:
+\small {
+
+{\color{mainblue}\faSmileO} Gym, Running, Cycling
+
+{\color{mainblue}\faUser} Basket-Ball:
+{\footnotesize
+\vspace{-0.2cm}
 \begin{itemize}
-\item Stock-controller (conforama) 2010 -2012
-\item Agent of production (ELIS) 2011
-\item Horticulturist (2007-2009)
+\item[\color{maingray}\faArrowRight] Guard player for 10 years
+\item[\color{maingray}\faArrowRight] Official referee for 3 years
+\item[\color{maingray}\faArrowRight] Follow NBA actuality
 \end{itemize}
+}
 
-\end{document} 
+{\color{mainblue}\faTerminal} Writing Windows Manager running on Linux
+
+{\color{mainblue}\faCogs} Member in robotics club during 2 years
+
+}
+
+\end{document}

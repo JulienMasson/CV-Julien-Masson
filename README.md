@@ -3,6 +3,9 @@ CV Julien Masson
 
 This is my personnal Curriculum Vitae.
 
+### Compile
+$ lualatex CV-Julien-Masson.tex
+
 ### TODO
 * Profil infos: add linkedin link
 * Education: improve format text
