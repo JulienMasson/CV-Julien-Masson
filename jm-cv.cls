@@ -22,6 +22,7 @@
 \RequirePackage{fontawesome,academicons}
 \RequirePackage{dashrule}
 \RequirePackage{wrapfig}
+\RequirePackage{array}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -56,7 +57,7 @@
 %----------------------------------------------------------------------------------------
 
 \setlength{\TPHorizModule}{1cm} % Left margin
-\setlength{\TPVertModule}{1cm} % Top margin
+\setlength{\TPVertModule}{4cm} % Top margin
 
 \newlength\imagewidth
 \newlength\imagescale
@@ -73,34 +74,36 @@
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
 \newcommand{\education}[1]{\renewcommand{\education}{#1}}
 \newcommand{\languages}[1]{\renewcommand{\languages}{#1}}
-\newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
+\newcommand{\personnality}[1]{\renewcommand{\personnality}{#1}}
+\newcommand{\customskills}[1]{\renewcommand{\customskills}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
+\newcommand{\cvskype}[1]{\renewcommand{\cvskype}{#1}}
 
 % Command for printing the contact information icons
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
 
 % Command for printing skill progress bars
-\newcommand\skills[1]{ 
-	\renewcommand{\skills}{
-		\begin{tikzpicture}
-			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (5,\i+0.4);
-				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
-				\node [above right] at (0,\i+0.4) {\x};
-			}
-		\end{tikzpicture}
-	}
+\newcommand\skills[1]{
+  \renewcommand{\skills}{
+    \begin{tikzpicture}
+      \foreach [count=\i] \x/\y in {#1}{
+	\draw[fill=maingray,maingray] (0,\i) rectangle (5,\i+0.4);
+	\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
+	\node [above right] at (0,\i+0.4) {\x};
+      }
+    \end{tikzpicture}
+  }
 }
 
 % Command for printing skills text
-\newcommand\skillstext[1]{ 
-	\renewcommand{\skillstext}{
-		\begin{flushleft}
-			\foreach [count=\i] \x/\y in {#1}{ 
-				\x$ \star $\y
-			}
-		\end{flushleft}
-	}
+\newcommand\skillstext[1]{
+  \renewcommand{\skillstext}{
+    \begin{flushleft}
+      \foreach [count=\i] \x/\y in {#1}{
+	\x$ \star $\y
+      }
+    \end{flushleft}
+  }
 }
 
 %----------------------------------------------------------------------------------------
@@ -108,65 +111,66 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand{\makeprofile}{
-	\begin{tikzpicture}[remember picture,overlay]
-   		\node [rectangle, fill=sidecolor, anchor=north, minimum width=7.5cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
-	\end{tikzpicture}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node [rectangle, fill=sidecolor, anchor=north, minimum width=7.5cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+  \end{tikzpicture}
 
-	%------------------------------------------------
+  %------------------------------------------------
 
-	\begin{textblock}{6}(0.5, 0.2)
-			
-		%------------------------------------------------
-		
-		\begin{center}
-			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-				\clip (600/2, 567/2) circle (567/2);
-				\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{\profilepic}};
-			\end{tikzpicture}
-		\end{center}
+  \begin{textblock}{5}(0.5, 0.2)
 
-		%------------------------------------------------
+    %------------------------------------------------
 
-		{\Huge\color{mainblue}\cvname}
+    {\Huge\color{mainblue}\center{\cvname}}\\
 
-		%------------------------------------------------
+    %------------------------------------------------
 
-		\renewcommand{\arraystretch}{1.6}
-		\begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
-			\ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\Info}} & \cvdate\\}
-			\ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\Letter}} & \cvaddress\\}
-			\ifthenelse{\equal{\cvnumberphone}{}}{}{\textsc{\Large\icon{\Telefon}} & \cvnumberphone\\}
-			\ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{@}} & \href{mailto:\cvmail}{\cvmail}\\}
-			\ifthenelse{\equal{\cvlinkedin}{}}{}{\textsc{\large\icon{\faLinkedin}} & \href{mailto:\cvlinkedin}{\cvlinkedin}}
-		\end{tabular}
+    \renewcommand{\arraystretch}{1.7}
+    \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
+      \ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\faInfoCircle}} & \cvdate\\}
+      \ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\faHome}} & \cvaddress\\}
+      \ifthenelse{\equal{\cvnumberphone}{}}{}{\textsc{\Large\icon{\faPhone}} & \cvnumberphone\\}
+      \ifthenelse{\equal{\cvskype}{}}{}{\textsc{\Large\icon{\faSkype}} & \cvskype\\}
+      \ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{\faEnvelope}} & \href{mailto:\cvmail}{\cvmail}}
+      
+    \end{tabular}
+    \vspace{-0.5cm}
 
-		%------------------------------------------------
+    %------------------------------------------------
 
-		\profilesection{Education}{2.1cm}
-			
-		\begin{flushleft}
-			\education
-		\end{flushleft}
+    \profilesection{Education}{2.1cm}
 
-		%------------------------------------------------
+    \begin{flushleft}
+      \education
+    \end{flushleft}
 
-		\profilesection{Languages}{2.1cm}
-			
-		\begin{flushleft}
-			\languages
-		\end{flushleft}
+    %------------------------------------------------
 
-                %------------------------------------------------
+    \profilesection{Languages}{2.1cm}
 
-		\profilesection{Skills}{3.5cm}
+    \begin{flushleft}
+      \languages
+    \end{flushleft}
 
-		\skills
-		\skillstext
-		%% \scriptsize
-			
-		%------------------------------------------------
-			
-	\end{textblock}
+    %------------------------------------------------
+
+    \profilesection{Personnality}{1.4cm}
+
+    \begin{flushleft}
+      \personnality
+    \end{flushleft}
+
+    %------------------------------------------------
+
+    \profilesection{Programming}{1.0cm}
+
+    \begin{flushleft}
+      \customskills
+    \end{flushleft}
+
+    %------------------------------------------------
+
+  \end{textblock}
 }
 
 %----------------------------------------------------------------------------------------
@@ -175,130 +179,131 @@
 
 % Command to create the rounded boxes around the first three letters of section titles
 \newcommand*\round[2]{%
-	\tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.6pt, minimum size=5.5mm, text height=3.6mm, fill=#2,#2,text=white](char){#1};%
+  \tikz[baseline=(char.base)]\node[anchor=north west, draw,rectangle, rounded corners, inner sep=1.6pt, minimum size=5.5mm, text height=3.6mm, fill=#2,#2,text=white](char){#1};%
 }
 
 \newcounter{colorCounter}
 \newcommand{\sectioncolor}[1]{%
-	{%
-		\round{#1}{
-			\ifcase\value{colorCounter}%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
-			maingray\or%
-			mainblue\or%
- 			maingray\or%
-			mainblue\else%
-			maingray\fi%
-		}%
-	}%
-	\stepcounter{colorCounter}%
+  {%
+    \round{#1}{
+      \ifcase\value{colorCounter}%
+      mainblue\or%
+      maingray\or%
+      mainblue\or%
+      maingray\or%
+      mainblue\or%
+      maingray\or%
+      mainblue\or%
+      maingray\or%
+      mainblue\else%
+      maingray\fi%
+    }%
+  }%
+  \stepcounter{colorCounter}%
 }
 
 \renewcommand{\section}[1]{
-	{%
-		\color{gray}%
-		\Large\sectioncolor{#1}%
-	}
+  {%
+    \color{gray}%
+    \Large\sectioncolor{#1}%
+  }
 }
 
 \renewcommand{\subsection}[1]{
-	\par\vspace{.5\parskip}{%
-		\large\color{gray} #1%
-	}
-	\par\vspace{.25\parskip}%
+  \par\vspace{.5\parskip}{%
+    \large\color{gray} #1%
+  }
+  \par\vspace{.25\parskip}%
 }
 
 \newcommand{\cvsection}[2][]{%
   \bigskip%
-  \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}% 
-  {\color{mainblue}\LARGE\bfseries\MakeUppercase{#2}}\\[-1ex]%
-  {\color{mainblue}\rule{\linewidth}{2pt}\par}
+  \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}%
+             {\color{mainblue}\LARGE\bfseries\MakeUppercase{#2}}\\[-1ex]%
+             {\color{mainblue}\rule{\linewidth}{2pt}\par}
 }
 
 \newcommand{\cvevent}[4]{%
   {\large\color{black}#1\par}
   \textbf{\color{blue!70!black}#2}\par
-  {\footnotesize\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
-  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
-  \medskip
+         {\footnotesize\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}\par%
+           \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
 }
 
 \newcommand{\mycvevent}[4]{%
   {\large\makebox[0.5\linewidth][l]{\color{black}\hspace{0.5em}#1}%
     \makebox[0.5\linewidth][l]{\textbf{\color{blue!70!black}\hspace{0.5em}#2}}\par}
   {\footnotesize\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
-  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+    \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
   \medskip
 }
 
 \newcommand{\cvskill}[2]{%
-\textcolor{emphasis}{\textbf{#1}}\hfill
-\foreach \x in {1,...,7}{%
-  \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{mainblue}}\faPlusCircle}}\par%
+  \textcolor{emphasis}{\textbf{#1}}\hfill
+  \foreach \x in {1,...,7}{%
+    \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{mainblue}}\faPlusCircle}}\par%
 }
 
 \newcommand{\wheelchart}[3]{%
-    \begingroup\centering
-    \def\innerradius{#2}%
-    \def\outerradius{#1}%
-    % Calculate total
-    \pgfmathsetmacro{\totalnum}{0}%
-    \foreach \value/\colour/\name in {#3} {%
-        \pgfmathparse{\value+\totalnum}%
-        \global\let\totalnum=\pgfmathresult%
-    }%
-    \begin{tikzpicture}
+  \begingroup\centering
+  \def\innerradius{#2}%
+  \def\outerradius{#1}%
+  % Calculate total
+  \pgfmathsetmacro{\totalnum}{0}%
+  \foreach \value/\colour/\name in {#3} {%
+    \pgfmathparse{\value+\totalnum}%
+    \global\let\totalnum=\pgfmathresult%
+  }%
+  \begin{tikzpicture}
 
-      % Calculate the thickness and the middle line of the wheel
-      \pgfmathsetmacro{\wheelwidth}{\outerradius-\innerradius}
-      \pgfmathsetmacro{\midradius}{(\outerradius+\innerradius)/2}
+    % Calculate the thickness and the middle line of the wheel
+    \pgfmathsetmacro{\wheelwidth}{\outerradius-\innerradius}
+    \pgfmathsetmacro{\midradius}{(\outerradius+\innerradius)/2}
 
-      % Rotate so we start from the top
-      \begin{scope}[rotate=-90]
+    % Rotate so we start from the top
+    \begin{scope}[rotate=-90]
 
       % Loop through each value set. \cumnum keeps track of where we are in the wheel
       \pgfmathsetmacro{\cumnum}{0}
       \foreach \value/\width/\colour/\name in {#3} {
-            \pgfmathsetmacro{\newcumnum}{\cumnum + \value/\totalnum*360}
+        \pgfmathsetmacro{\newcumnum}{\cumnum + \value/\totalnum*360}
 
-            % Calculate the percent value
-            \pgfmathsetmacro{\percentage}{\value/\totalnum*100}
-            % Calculate the mid angle of the colour segments to place the labels
-            \pgfmathsetmacro{\midangle}{-(\cumnum+\newcumnum)/2}
+        % Calculate the percent value
+        \pgfmathsetmacro{\percentage}{\value/\totalnum*100}
+        % Calculate the mid angle of the colour segments to place the labels
+        \pgfmathsetmacro{\midangle}{-(\cumnum+\newcumnum)/2}
 
-            % This is necessary for the labels to align nicely
-            \pgfmathparse{
-               (-\midangle>180?"west":"east")
-            } \edef\textanchor{\pgfmathresult}
-            \pgfmathparse{
-               (-\midangle>180?"flush left":"flush right")
-            } \edef\textalign{\pgfmathresult}
-            \pgfmathsetmacro\labelshiftdir{1-2*(-\midangle<180)}
+        % This is necessary for the labels to align nicely
+        \pgfmathparse{
+          (-\midangle>180?"west":"east")
+        } \edef\textanchor{\pgfmathresult}
+        \pgfmathparse{
+          (-\midangle>180?"flush left":"flush right")
+        } \edef\textalign{\pgfmathresult}
+        \pgfmathsetmacro\labelshiftdir{1-2*(-\midangle<180)}
 
-            % Draw the color segments. Somehow, the \midrow units got lost, so we add 'pt' at the end. Not nice...
-            \filldraw[draw=white,fill=\colour] (-\cumnum:\outerradius) arc (-\cumnum:-(\newcumnum):\outerradius) --
-            (-\newcumnum:\innerradius) arc (-\newcumnum:-(\cumnum):\innerradius) -- cycle;
+        % Draw the color segments. Somehow, the \midrow units got lost, so we add 'pt' at the end. Not nice...
+        \filldraw[draw=white,fill=\colour] (-\cumnum:\outerradius) arc (-\cumnum:-(\newcumnum):\outerradius) --
+        (-\newcumnum:\innerradius) arc (-\newcumnum:-(\cumnum):\innerradius) -- cycle;
 
-            % Draw the data labels
-            \draw  [*-,thin,emphasis] node [append after command={(\midangle:\midradius pt) -- (\midangle:\outerradius + 1ex) -- (\tikzlastnode)}] at (\midangle:\outerradius + 1ex) [xshift=\labelshiftdir*0.5cm,inner sep=1ex, outer sep=0pt, text width=\width,anchor=\textanchor,align=\textalign,font=\small,text=body]{\name};
-            % Set the old cumulated angle to the new value
-            \global\let\cumnum=\newcumnum
-        }
-      \end{scope}
-%      \draw[gray] (0,0) circle (\outerradius) circle (\innerradius);
-    \end{tikzpicture}\par
-    \endgroup
+        % Draw the data labels
+        \draw  [*-,thin,emphasis] node [append after command={(\midangle:\midradius pt) -- (\midangle:\outerradius + 1ex) -- (\tikzlastnode)}] at (\midangle:\outerradius + 1ex) [xshift=\labelshiftdir*0.5cm,inner sep=1ex, outer sep=0pt, text width=\width,anchor=\textanchor,align=\textalign,font=\small,text=body]{\name};
+        % Set the old cumulated angle to the new value
+        \global\let\cumnum=\newcumnum
+      }
+    \end{scope}
+    %      \draw[gray] (0,0) circle (\outerradius) circle (\innerradius);
+  \end{tikzpicture}\par
+  \endgroup
 }
 
 \newcommand{\divider}{\textcolor{body!30}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}\medskip}
+\newcommand{\minidivider}{\textcolor{body!70}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}}
 
 \newcommand{\cvtag}[1]{%
   \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
 }
+
 %----------------------------------------------------------------------------------------
 %	 LONG LIST ENVIRONMENT
 %----------------------------------------------------------------------------------------
@@ -307,18 +312,18 @@
 
 % New environment for the long list
 \newenvironment{twenty}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
 }{%
-	\end{tabular*}
+  \end{tabular*}
 }
 
 \newcommand{\twentyitem}[4]{%
-	#1&\parbox[t]{0.83\textwidth}{%
-		\textbf{#2}%
-		\hfill%
-		{\footnotesize#3}\\%
-		#4\vspace{\parsep}%
-	}\\
+  #1&\parbox[t]{0.83\textwidth}{%
+    \textbf{#2}%
+    \hfill%
+	{\footnotesize#3}\\%
+	#4\vspace{\parsep}%
+  }\\
 }
 
 %----------------------------------------------------------------------------------------
@@ -329,15 +334,15 @@
 
 % New environment for the small list
 \newenvironment{twentyshort}{%
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
 }{%
-	\end{tabular*}
+  \end{tabular*}
 }
 
 \newcommand{\twentyitemshort}[2]{%
-	#1&\parbox[t]{0.83\textwidth}{%
-		\textbf{#2}%
-	}\\
+  #1&\parbox[t]{0.83\textwidth}{%
+    \textbf{#2}%
+  }\\
 }
 
 %----------------------------------------------------------------------------------------

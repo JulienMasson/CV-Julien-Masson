@@ -30,14 +30,12 @@
 
 % If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
 
-\profilepic{profil.jpg} % Profile picture
-
 \cvname{Julien Masson} % Your name
 \cvdate{27 August 1990} % Date of birth
-\cvaddress{France} % Short address/location, use \newline if more than 1 line is required
+\cvaddress{Toulouse, France} % Short address/location, use \newline if more than 1 line is required
 \cvnumberphone{+33 0682954063} % Phone numbe
 \cvmail{massonju.eseo@gmail.com} % Email address
-\cvlinkedin{julien-masson} % Linkedin => https://www.linkedin.com/in/julien-masson-20801482
+\cvskype{julien\_masson\_49} % Skype
 
 %----------------------------------------------------------------------------------------
 
@@ -48,9 +46,11 @@
 %----------------------------------------------------------------------------------------
 
 \education{
-  \cvevent{Engineering School}{ESEO}{Sept 2008 -- June 2014}{}
-  \cvevent{MSc Robotics}{Univeristy of Plymouth}{Sept 2012 -- Sept 2013}{}
-  \cvevent{A Level of Sciences}{Sacre Coeur}{Sept 2005 -- June 208}{}
+  \cvevent{Engineering School}{ESEO - Electronics/Informatics}{Sept 2008 -- June 2014}{Angers, France}
+          {\vspace{-0.2cm}\minidivider\vspace{0.2cm}}
+  \cvevent{MSc Robotics}{Univeristy of Plymouth}{Sept 2012 -- Sept 2013}{Plymouth, England}
+          {\vspace{-0.2cm}\minidivider\vspace{0.2cm}}
+  \cvevent{A Level of Sciences}{Sacre Coeur}{Sept 2005 -- June 208}{Angers, France}
 }
 
 \languages{
@@ -61,12 +61,29 @@
   \end{twentyshort}
 }
 
+\personnality{
+\cvtag{Friendly}
+\cvtag{Open-Minded}
+\cvtag{Hard-Worker}
+\cvtag{Autonomous}
+\cvtag{Curious}
+\cvtag{Creative}
+}
+
 %----------------------------------------------------------------------------------------
 %	 SKILLS
 %----------------------------------------------------------------------------------------
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
-\skills{{Latex/1.5},{Python/1.5},{Perl/1.5},{Lisp/3.5},{C++/3},{Git/4.5},{Bash/4.5},{C/4.5}}
+\customskills{
+\cvskill{C}{6}
+\cvskill{Bash}{6}
+\cvskill{Git}{6}
+\cvskill{C++}{5}
+\cvskill{Lisp}{5}
+\cvskill{Perl}{4}
+\cvskill{Python}{4}
+}
 
 %------------------------------------------------
 
@@ -80,10 +97,6 @@
   {\Huge\color{black!80}Embedded System Engineer}
 \end{center}
 
-\begin{center}
-  {\large\color{black!80}Looking for a job in Taiwan}
-\end{center}
-
 %----------------------------------------------------------------------------------------
 %	 EXPERIENCE
 %----------------------------------------------------------------------------------------
@@ -92,21 +105,25 @@
 
 \mycvevent{Linux Developer}{Intel}{August 2014 -- Ongoing}{Toulouse, France}
 
-\begin{wrapfigure}{R}{0.2\textwidth}
-  \includegraphics[scale=0.12]{logo-intel.png}
-\end{wrapfigure}
 
 \small{
 
-  Development of new Intel devices based on android platform.
+  I have been working during 2 years at Intel on android platform, collaborating with people in USA, India, China and Europe. I worked mainly on smart watches like Fossil Q Founder and Tag Heuer Connected but also on Google Smart TV, Intel's phone ...
 
-  {\footnotesize\color{maingray}\bullet} Technical specialist of these subjects in the team:
-  \vspace{-0.2cm}
+  \vspace{0.2cm}
+  \begin{minipage}{.7\textwidth}
+      {\footnotesize\color{maingray}\bullet} Technical specialist of these subjects in the team:
   \begin{itemize}
   \item[\color{mainblue}\faArrowRight] Power up/down process
   \item[\color{mainblue}\faArrowRight] Provisioning and systems update
   \item[\color{mainblue}\faArrowRight] Flashing and boot process
   \end{itemize}
+  \end{minipage}%
+  \begin{minipage}{.3\textwidth}
+    \center
+    \includegraphics[scale=0.13]{logo-intel.png}
+  \end{minipage}
+  \vspace{0.2cm}
 
   {\footnotesize\color{maingray}\bullet}  Developer/Maintainer of this software components:
   \vspace{-0.2cm}
@@ -160,7 +177,9 @@
 
 \small {
 
-  Development of 6LoWPAN system for home automation solutions.
+  My subject was to develop a system for home automation based on the 6LoWPAN network.\\
+  Firstly I did state of the art of the technology, build a prototype and develop all software.\\
+  Finally all my work was integrated in advanced home automation system called Calaos.
 
   \begin{tabular}{ l l l }
     Project environment: & \hspace{1cm}Software tools: & \hspace{1cm}Technical skills:\\
@@ -175,6 +194,10 @@
     {\color{mainblue}\faCheck} Github &
     \hspace{1cm}{\color{maingreen}\faCheck} GDB &
     \hspace{1cm}{\color{maingray}\faCheck} Cross-compilation\\
+
+    {\color{mainblue}\faCheck} EFL &
+    &
+    \hspace{1cm}{\color{maingray}\faCheck} Network\\
 
   \end{tabular}\\
 
@@ -197,14 +220,24 @@
 \begin{multicols}{2}
   \small {
 
-    Activities:
+    {\color{mainblue}\faBicycle} Cycling
+    {\footnotesize
+      \vspace{-0.2cm}
+      \begin{itemize}
+      \item[\color{maingray}\faArrowRight] 20 Km per day to go to work
+      \end{itemize}
+    }
 
-    {\color{mainblue}\faSmileO} Gym, Running, Cycling
+    {\color{mainblue}\faUser} Traveling
+        {\footnotesize
+      \vspace{-0.2cm}
+      \begin{itemize}
+      \item[\color{maingray}\faArrowRight] Europe: Germany, Spain, England ...
+      \item[\color{maingray}\faArrowRight] Asia: Japan, Malaysia, Thailand ...
+      \end{itemize}
+    }
 
-    {\color{mainblue}\faUser} Traveling (Europe/Asia)
-
-    {\color{mainblue}\faDribbble} Basket-Ball:
-
+    {\color{mainblue}\faDribbble} Basket-Ball
     {\footnotesize
       \vspace{-0.2cm}
       \begin{itemize}
@@ -212,19 +245,26 @@
       \item[\color{maingray}\faArrowRight] Official referee for 3 years
       \end{itemize}
     }
-    \vspace{-0.2cm}
-           {\color{mainblue}\faTerminal} Writing Windows Manager (Linux)
 
-           {\color{mainblue}\faCogs} Robotics club (2 years)
+    {\color{mainblue}\faLinux} Linux
+    {\footnotesize
+      \vspace{-0.2cm}
+      \begin{itemize}
+      \item[\color{maingray}\faArrowRight] Follow news (lwn.net)
+      \item[\color{maingray}\faArrowRight] Participate to conference
+      \item[\color{maingray}\faArrowRight] Writing personnal software
+      \end{itemize}
+    }
 
-           Personnality:
+    {\color{mainblue}\faCogs} Associative
+    {\footnotesize
+      \vspace{-0.2cm}
+      \begin{itemize}
+      \item[\color{maingray}\faArrowRight] Robotics club (2 years)
+      \item[\color{maingray}\faArrowRight] Communication School Gala (1 year)
+      \end{itemize}
+    }
 
-           \cvskill{Friendly}{6}
-           \cvskill{Open-Minded}{6}
-           \cvskill{Hard-Worker}{6}
-           \cvskill{Autonomous}{5}
-           \cvskill{Curious}{5}
-           \cvskill{Creative}{4}
   }
 
 \end{multicols}
