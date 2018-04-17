@@ -235,6 +235,11 @@
     \makebox[0.5\linewidth][l]{\textbf{\color{blue!70!black}\hspace{0.5em}#2}}\par}
   {\footnotesize\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
     \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+}
+
+\newcommand{\mycveventnext}[2]{%
+  {\footnotesize\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#1}%
+    \ifstrequal{#2}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#2}}\par}
   \medskip
 }
 
@@ -352,3 +357,8 @@
 \RequirePackage[left=7.6cm,top=0.1cm,right=1cm,bottom=0.2cm,nohead,nofoot]{geometry}
 
 \RequirePackage{hyperref}
+
+\hypersetup{%
+  colorlinks=true,
+  urlcolor=mainblue,
+}

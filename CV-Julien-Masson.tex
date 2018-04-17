@@ -32,8 +32,8 @@
 
 \cvname{Julien Masson} % Your name
 \cvdate{27 August 1990} % Date of birth
-\cvaddress{Toulouse, France} % Short address/location, use \newline if more than 1 line is required
-\cvnumberphone{+33 0682954063} % Phone numbe
+\cvaddress{San Francisco, United States} % Short address/location, use \newline if more than 1 line is required
+\cvnumberphone{(650) 448-8570} % Phone numbe
 \cvmail{massonju.eseo@gmail.com} % Email address
 \cvskype{julien\_masson\_49} % Skype
 
@@ -76,13 +76,13 @@
 
 % Skill bar section, each skill must have a value between 0 an 6 (float)
 \customskills{
-\cvskill{C}{6}
-\cvskill{Bash}{6}
-\cvskill{Git}{6}
-\cvskill{C++}{5}
-\cvskill{Lisp}{5}
-\cvskill{Perl}{4}
-\cvskill{Python}{4}
+  \cvskill{C}{6}
+  \cvskill{Lisp}{6}
+  \cvskill{Git}{6}
+  \cvskill{Python}{5}
+  \cvskill{Bash}{4}
+  \cvskill{C++}{4}
+  \cvskill{Perl}{4}
 }
 
 %------------------------------------------------
@@ -101,14 +101,69 @@
 %	 EXPERIENCE
 %----------------------------------------------------------------------------------------
 
+\medskip
 \cvsection{EXPERIENCE}
 
-\mycvevent{Linux Developer}{Intel}{August 2014 -- Ongoing}{Toulouse, France}
-
+\medskip
+\mycvevent{Linux Developer}{Facebook}{February 2018 -- Ongoing}{Silicon Valley, United States}
+\medskip
 
 \small{
 
-  I have been working during 2 years at Intel on android platform, collaborating with people in USA, India, China and Europe. I worked mainly on smart watches like Fossil Q Founder and Tag Heuer Connected but also on Google Smart TV, Intel's phone ...
+
+  I recently joined the Oculus Team at Facebook as linux developer.
+  I worked on stand-alone VR Headset named as "Oculus Go" and more particulary on the bootloader part of the Oculus products.
+
+  \vspace{0.2cm}
+  \begin{minipage}{.7\textwidth}
+      {\footnotesize\color{maingray}\bullet} Skills involved:
+  \begin{itemize}
+  \item[\color{mainblue}\faArrowRight] Understand bootloader architecture
+  \item[\color{mainblue}\faArrowRight] Collaborate with the team
+  \item[\color{mainblue}\faArrowRight] Develop features and fix bugs
+  \item[\color{mainblue}\faArrowRight] Write unit tests
+  \item[\color{mainblue}\faArrowRight] Suggest improvements
+  \end{itemize}
+  \end{minipage}%
+  \begin{minipage}{.3\textwidth}
+    \center
+    \includegraphics[scale=0.06]{logo-facebook.png}
+  \end{minipage}
+  \vspace{0.2cm}
+
+  \begin{tabular}{ l l l }
+    Project environment: & \hspace{1cm}Software tools: & \hspace{1cm}Technical skills:\\
+    {\color{mainblue}\faCheck} Phabricator &
+    \hspace{1cm}{\color{maingreen}\faCheck} Emacs &
+    \hspace{1cm}{\color{maingray}\faCheck} Low-level programming\\
+
+    {\color{mainblue}\faCheck} Facebook Intern Utils &
+    \hspace{1cm}{\color{maingreen}\faCheck} Python tools:&
+    \hspace{1cm}{\color{maingray}\faCheck} Security Architecture\\
+
+    {\color{mainblue}\faCheck} Android &
+    \hspace{1.5cm}flake8, pylint ...&
+    \hspace{1cm}{\color{maingray}\faCheck} Unit tests \\
+
+  \end{tabular}\\
+
+  Programming languagues used:\\
+  \cvtag{C}
+  \cvtag{Bash}
+  \cvtag{Python}
+  \cvtag{Lisp}
+}
+
+\medskip
+\divider
+\medskip
+
+\mycvevent{Linux Developer}{Intel}{April 2017 -- January 2018}{Silicon Valley, United States}
+\mycveventnext{August 2014 -- April 2017}{Toulouse, France}
+
+\small{
+
+  I have been working during 4 years at Intel on android platform, collaborating with people in USA, India, China and Europe. I worked mainly on smart watches like Fossil Q Founder and Tag Heuer Connected but also on Google Smart TV, Intel's phone ...
 
   \vspace{0.2cm}
   \begin{minipage}{.7\textwidth}
@@ -171,9 +226,19 @@
   \cvtag{asm x86}
 }
 
-\divider
+\newgeometry{left=3cm,right=3cm,top=0.1cm,bottom=0.2cm,nohead,nofoot}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node [rectangle, fill=sidecolor, anchor=north, minimum width=7.5cm, minimum height=\paperheight+1cm] (box) at (-4.5cm,0.5cm){};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node [rectangle, fill=sidecolor, anchor=north, minimum width=7.5cm, minimum height=\paperheight+1cm] (box) at (20cm,1.5cm){};
+\end{tikzpicture}
+
 
 \mycvevent{End of studies Internship}{OpenWide}{March 2014 -- August 2014}{Toulouse, France}
+\medskip
 
 \small {
 
@@ -208,14 +273,84 @@
   \cvtag{Lisp}
 }
 
+%----------------------------------------------------------------------------------------
+%	 PERSONAL PROJECT
+%  ----------------------------------------------------------------------------------------
+\medskip
+\cvsection{Personal Projects}
+\medskip
+
+{\large{\color{maingray}\bullet}\makebox[0.5\linewidth][l]{\color{black}\hspace{0.5em}Write windows manager for Linux}}
+
+This windows manager is a minimalist floating/tiling WM, written over the XCB library and was initially based on 2bwm.
+
+\begin{minipage}{.7\textwidth}
+  I decided to write my own windows manager for several reasons:
+  \begin{itemize}
+  \item[\color{mainblue}\faArrowRight] Have the control of my windows on linux
+  \item[\color{mainblue}\faArrowRight] Write source code in C which cover different area
+  \item[\color{mainblue}\faArrowRight] Try to use  this project as a good source code base
+  \end{itemize}
+\end{minipage}%
+\begin{minipage}{.3\textwidth}
+  \center
+  \includegraphics[scale=0.10]{logo-github.png}
+\end{minipage}
+\vspace{0.2cm}
+
+My project is Public and available on github:\\
+\href{https://github.com/JulienMasson/jwm}{https://github.com/JulienMasson/jwm}
+
+\begin{tabular}{ l l l }
+  Library: & \hspace{1cm}Software tools: & \hspace{1cm}Technical skills:\\
+  {\color{mainblue}\faCheck} XCB &
+  \hspace{1cm}{\color{maingreen}\faCheck} Emacs &
+  \hspace{1cm}{\color{maingray}\faCheck} Middleware programming\\
+
+  {\color{mainblue}\faCheck} Cairo &
+  \hspace{1cm}{\color{maingreen}\faCheck} GDB &
+  \hspace{1cm}{\color{maingray}\faCheck} Graphics Architecture\\
+
+  {\color{mainblue}\faCheck} Pango &
+  \hspace{1cm}{\color{maingreen}\faCheck} Coding style tools &
+  \hspace{1cm}{\color{maingray}\faCheck} Documentation\\
+
+\end{tabular}\\
+
+Programming languagues used:\\
+\cvtag{C}
+\cvtag{Bash}
+\cvtag{Lisp}
+
+\divider
+
+{\large{\color{maingray}\bullet}\makebox[0.5\linewidth][l]{\color{black}\hspace{0.5em}Hack Emacs module}}
+
+Emacs is one of the tools that I used the most.
+I regularly develop/hack emacs modules, It allows me to be fast and efficient at work.
+
+\begin{minipage}{.7\textwidth}
+  As a software developer I use Emacs for:
+  \begin{itemize}
+  \item[\color{mainblue}\faArrowRight] Source code: indexing, completion, compilation
+  \item[\color{mainblue}\faArrowRight] Front-end tools: ssh, gdb, git, grep ...
+  \item[\color{mainblue}\faArrowRight] Extra: instant messaging, mail reader/sender ...
+  \end{itemize}
+\end{minipage}%
+\begin{minipage}{.3\textwidth}
+  \center
+  \includegraphics[scale=0.02]{logo-emacs.png}
+\end{minipage}
+\vspace{0.2cm}
+
+Emacs lisp projects forked:\\
+\url{https://github.com/JulienMasson?tab=repositories\&language=emacs+lisp}
 
 %----------------------------------------------------------------------------------------
 %	 MISCELLANEOUS
 %----------------------------------------------------------------------------------------
 
 \cvsection{MISCELLANEOUS}
-
-\vspace{-0.2cm}
 
 \begin{multicols}{2}
   \small {
@@ -224,7 +359,7 @@
     {\footnotesize
       \vspace{-0.2cm}
       \begin{itemize}
-      \item[\color{maingray}\faArrowRight] 20 Km per day to go to work
+      \item[\color{maingray}\faArrowRight] Everyday to go to work
       \end{itemize}
     }
 
@@ -234,6 +369,7 @@
       \begin{itemize}
       \item[\color{maingray}\faArrowRight] Europe: Germany, Spain, England ...
       \item[\color{maingray}\faArrowRight] Asia: Japan, Malaysia, Thailand ...
+      \item[\color{maingray}\faArrowRight] United States: California, Nevada, New York ...
       \end{itemize}
     }
 
@@ -250,21 +386,10 @@
     {\footnotesize
       \vspace{-0.2cm}
       \begin{itemize}
-      \item[\color{maingray}\faArrowRight] Follow news (lwn.net)
-      \item[\color{maingray}\faArrowRight] Participate to conference
-      \item[\color{maingray}\faArrowRight] Writing personnal software
+      \item[\color{maingray}\faArrowRight] Read several documentation
+      \item[\color{maingray}\faArrowRight] Follow news (reddit)
       \end{itemize}
     }
-
-    {\color{mainblue}\faCogs} Associative
-    {\footnotesize
-      \vspace{-0.2cm}
-      \begin{itemize}
-      \item[\color{maingray}\faArrowRight] Robotics club (2 years)
-      \item[\color{maingray}\faArrowRight] Communication School Gala (1 year)
-      \end{itemize}
-    }
-
   }
 
 \end{multicols}
