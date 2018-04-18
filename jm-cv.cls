@@ -37,6 +37,7 @@
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
 \definecolor{maingreen}{HTML}{00ea27}
+\definecolor{mainpurple}{HTML}{A36EB9}
 \colorlet{accent}{blue!70!black}
 \colorlet{heading}{black}
 \colorlet{emphasis}{black}
