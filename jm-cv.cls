@@ -37,7 +37,6 @@
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
 \definecolor{maingreen}{HTML}{00ea27}
-\definecolor{mainpurple}{HTML}{A36EB9}
 \colorlet{accent}{blue!70!black}
 \colorlet{heading}{black}
 \colorlet{emphasis}{black}
@@ -126,7 +125,7 @@
 
     %------------------------------------------------
 
-    \renewcommand{\arraystretch}{1.7}
+    \renewcommand{\arraystretch}{2}
     \begin{tabular}{p{0.5cm} @{\hskip 0.5cm}p{5cm}}
       \ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\faInfoCircle}} & \cvdate\\}
       \ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\faHome}} & \cvaddress\\}
@@ -158,6 +157,7 @@
     \profilesection{Personnality}{1.4cm}
 
     \begin{flushleft}
+      \vspace{0.2cm}
       \personnality
     \end{flushleft}
 
@@ -166,6 +166,7 @@
     \profilesection{Programming}{1.0cm}
 
     \begin{flushleft}
+      \vspace{0.2cm}
       \customskills
     \end{flushleft}
 
