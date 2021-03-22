@@ -77,7 +77,6 @@
 \newcommand{\personnality}[1]{\renewcommand{\personnality}{#1}}
 \newcommand{\customskills}[1]{\renewcommand{\customskills}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
-\newcommand{\cvskype}[1]{\renewcommand{\cvskype}{#1}}
 
 % Command for printing the contact information icons
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
@@ -130,7 +129,6 @@
       \ifthenelse{\equal{\cvdate}{}}{}{\textsc{\Large\icon{\faInfoCircle}} & \cvdate\\}
       \ifthenelse{\equal{\cvaddress}{}}{}{\textsc{\Large\icon{\faHome}} & \cvaddress\\}
       \ifthenelse{\equal{\cvnumberphone}{}}{}{\textsc{\Large\icon{\faPhone}} & \cvnumberphone\\}
-      \ifthenelse{\equal{\cvskype}{}}{}{\textsc{\Large\icon{\faSkype}} & \cvskype\\}
       \ifthenelse{\equal{\cvmail}{}}{}{\textsc{\large\icon{\faEnvelope}} & \href{mailto:\cvmail}{\cvmail}}
       
     \end{tabular}
